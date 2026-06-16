@@ -223,21 +223,27 @@ Durante esta sección se estudiaron los diferentes tipos de ciclos disponibles e
 
 <hr>
 
-<h2>2. Métodos</h2>
+<h2>2. Métodos (Funciones)</h2>
 
 <p>
-Los métodos son bloques de código que permiten organizar y reutilizar instrucciones dentro de un programa. Gracias a ellos se evita repetir código y se facilita la lectura y mantenimiento de las aplicaciones.
+Los métodos son bloques de código que permiten organizar y reutilizar instrucciones dentro de un programa. Gracias a ellos evitamos repetir código y hacemos que los programas sean más fáciles de leer y mantener.
 </p>
 
 <p>
-Un método puede recibir datos de entrada llamados parámetros y también puede devolver un resultado después de ejecutar determinadas operaciones.
+Un método puede recibir datos llamados parámetros y también puede devolver un resultado después de ejecutar determinadas operaciones.
+</p>
+
+<h3>¿Qué es un método?</h3>
+
+<p>
+Imagina que trabajas en una panadería y todos los días debes seguir los mismos pasos para preparar pan. En lugar de recordar cada paso una y otra vez, podrías escribir una receta y simplemente seguirla cuando sea necesario.
+</p>
+
+<p>
+En programación sucede algo parecido. Un método funciona como una receta: contiene instrucciones que pueden ejecutarse cada vez que las necesitemos sin tener que volver a escribirlas.
 </p>
 
 <h3>Ejemplo de método</h3>
-
-<p>
-El siguiente método muestra un mensaje de bienvenida:
-</p>
 
 <pre>
 public static void saludar() {
@@ -259,6 +265,92 @@ Bienvenido al mundo de Java
 
 <p>
 En este ejemplo, el método <strong>saludar()</strong> puede ser llamado cada vez que se necesite mostrar el mismo mensaje sin volver a escribir las instrucciones.
+</p>
+
+<h3>Partes de un método</h3>
+
+<pre>
+public static void nombreDelMetodo(parametros){
+    // instrucciones
+}
+</pre>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Parte</th>
+<th>Significado</th>
+</tr>
+
+<tr>
+<td>public</td>
+<td>El método puede ser utilizado desde cualquier parte del programa.</td>
+</tr>
+
+<tr>
+<td>static</td>
+<td>No necesitamos crear un objeto para llamar al método.</td>
+</tr>
+
+<tr>
+<td>void</td>
+<td>El método no devuelve ningún valor.</td>
+</tr>
+
+<tr>
+<td>nombreDelMetodo</td>
+<td>Es el nombre que utilizamos para identificar y llamar al método.</td>
+</tr>
+
+<tr>
+<td>parametros</td>
+<td>Son los datos que recibe el método para realizar una tarea.</td>
+</tr>
+</table>
+
+<h3>Tipos de métodos</h3>
+
+<h4>Método sin parámetros y sin retorno</h4>
+
+<p>
+Es el tipo más sencillo. Solo ejecuta instrucciones cuando lo llamamos, no necesita datos externos y no devuelve ningún resultado.
+</p>
+
+<pre>
+public static void saludar(){
+    System.out.println("¡Hola! Bienvenido al programa.");
+    System.out.println("Este es tu primer método en Java.");
+}
+</pre>
+
+<h4>Método con parámetros</h4>
+
+<p>
+Los parámetros son datos que enviamos al método para que pueda trabajar con ellos.
+</p>
+
+<pre>
+public static void sumar(int a, int b){
+    int resultado = a + b;
+    System.out.println(a + " + " + b + " = " + resultado);
+}
+
+sumar(3, 7);
+</pre>
+
+<h4>Método con retorno</h4>
+
+<p>
+Algunos métodos necesitan devolver un resultado para que pueda utilizarse más adelante. Para ello utilizamos la palabra <strong>return</strong>.
+</p>
+
+<pre>
+public static int calcularCuadrado(int numero){
+    return numero * numero;
+}
+</pre>
+
+<p>
+Este método recibe un número y devuelve su cuadrado.
 </p>
 </body>
 </html>
