@@ -1,0 +1,22 @@
+body{
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: #f8f9fa;
+    line-height: 1.6;
+}
+
+h1{
+    color: #1e40af;
+}
+
+h2{
+    color: #2563eb;
+}
+
+pre{
+    background: #eef2ff;
+    padding: 10px;
+    border-radius: 5px;
+}
