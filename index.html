@@ -63,11 +63,31 @@ Los ciclos son estructuras que permiten repetir un bloque de instrucciones varia
 En Java existen tres tipos principales de ciclos: <strong>for</strong>, <strong>while</strong> y <strong>do-while</strong>. Cada uno se utiliza en situaciones diferentes según las necesidades del programa.
 </p>
 
-<h3>Ciclo for</h3>
+<h3>Ciclo For</h3>
 
 <p>
-El ciclo for se utiliza cuando se conoce de antemano la cantidad de veces que se desea repetir una acción.
+El ciclo <strong>for</strong> se utiliza cuando conocemos exactamente cuántas veces queremos repetir una acción.
 </p>
+
+<h4>Sintaxis</h4>
+
+<pre>
+for(inicializacion; condicion; incremento){
+    instrucciones;
+}
+</pre>
+
+<p>
+El ciclo for tiene tres partes:
+</p>
+
+<ul>
+    <li><strong>Inicialización:</strong> crea una variable de control.</li>
+    <li><strong>Condición:</strong> determina cuándo termina el ciclo.</li>
+    <li><strong>Incremento:</strong> modifica la variable en cada repetición.</li>
+</ul>
+
+<h4>Ejemplo</h4>
 
 <pre>
 for(int i = 1; i <= 5; i++){
@@ -76,17 +96,114 @@ for(int i = 1; i <= 5; i++){
 </pre>
 
 <p>
-Resultado:
+Este programa mostrará los números del 1 al 5 en pantalla.
 </p>
 
+<h3>Ciclo While</h3>
+
+<p>
+El ciclo <strong>while</strong> se utiliza cuando no sabemos exactamente cuántas veces se repetirá una acción. El ciclo continúa ejecutándose mientras la condición sea verdadera.
+</p>
+
+<h4>Sintaxis</h4>
+
 <pre>
-1
-2
-3
-4
-5
+while(condicion){
+    instrucciones;
+}
 </pre>
 
+<h4>Ejemplo</h4>
+
+<pre>
+int numero = 1;
+
+while(numero <= 5){
+    System.out.println(numero);
+    numero++;
+}
+</pre>
+
+<p>
+Este programa imprime los números del 1 al 5 utilizando una condición que se evalúa antes de cada repetición.
+</p>
+
+<h3>Ciclo Do-While</h3>
+
+<p>
+El ciclo <strong>do-while</strong> es similar al ciclo while, pero tiene la particularidad de ejecutar las instrucciones al menos una vez antes de evaluar la condición.
+</p>
+
+<h4>Sintaxis</h4>
+
+<pre>
+do{
+    instrucciones;
+}while(condicion);
+</pre>
+
+<h4>Ejemplo</h4>
+
+<pre>
+int numero = 1;
+
+do{
+    System.out.println(numero);
+    numero++;
+}while(numero <= 5);
+</pre>
+
+<p>
+En este caso, el bloque de instrucciones se ejecuta primero y luego se verifica la condición.
+</p>
+
+<h3>Resumen de Ciclos</h3>
+
+<ul>
+    <li><strong>For:</strong> se utiliza cuando conocemos el número de repeticiones.</li>
+    <li><strong>While:</strong> se utiliza cuando las repeticiones dependen de una condición.</li>
+    <li><strong>Do-While:</strong> garantiza al menos una ejecución del bloque de código.</li>
+</ul>
+
+<h3>Ejercicios de Ciclos</h3>
+
+<h4>Ejercicio 1: Números del 1 al 20</h4>
+
+<pre>
+for(int i = 1; i <= 20; i++){
+    System.out.println(i);
+}
+</pre>
+
+<p>
+Resultado: 1 2 3 4 ... 20
+</p>
+
+<h4>Ejercicio 2: Números pares del 1 al 100</h4>
+
+<pre>
+for(int i = 2; i <= 100; i += 2){
+    System.out.println(i);
+}
+</pre>
+
+<p>
+Resultado: 2 4 6 8 ... 100
+</p>
+
+<h4>Ejercicio 3: Tabla de multiplicar del 5</h4>
+
+<pre>
+for(int i = 1; i <= 10; i++){
+    System.out.println("5 x " + i + " = " + (5 * i));
+}
+</pre>
+
+<p>
+Resultado: 5 x 1 = 5, 5 x 2 = 10, ... , 5 x 10 = 50
+</p>
+
+<hr>
 <hr>
 
 <h2>2. Métodos</h2>
