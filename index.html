@@ -223,7 +223,8 @@ Durante esta sección se estudiaron los diferentes tipos de ciclos disponibles e
 
 <hr>
 
-<h2>2. Métodos (Funciones)</h2>
+```html
+<h2>2. Métodos</h2>
 
 <p>
 Los métodos son bloques de código que permiten organizar y reutilizar instrucciones dentro de un programa. Gracias a ellos evitamos repetir código y hacemos que los programas sean más fáciles de leer y mantener.
@@ -241,30 +242,6 @@ Imagina que trabajas en una panadería y todos los días debes seguir los mismos
 
 <p>
 En programación sucede algo parecido. Un método funciona como una receta: contiene instrucciones que pueden ejecutarse cada vez que las necesitemos sin tener que volver a escribirlas.
-</p>
-
-<h3>Ejemplo de método</h3>
-
-<pre>
-public static void saludar() {
-    System.out.println("Bienvenido al mundo de Java");
-}
-
-public static void main(String[] args) {
-    saludar();
-}
-</pre>
-
-<p>
-Resultado:
-</p>
-
-<pre>
-Bienvenido al mundo de Java
-</pre>
-
-<p>
-En este ejemplo, el método <strong>saludar()</strong> puede ser llamado cada vez que se necesite mostrar el mismo mensaje sin volver a escribir las instrucciones.
 </p>
 
 <h3>Partes de un método</h3>
@@ -316,41 +293,199 @@ Es el tipo más sencillo. Solo ejecuta instrucciones cuando lo llamamos, no nece
 </p>
 
 <pre>
-public static void saludar(){
-    System.out.println("¡Hola! Bienvenido al programa.");
-    System.out.println("Este es tu primer método en Java.");
+public class MetodoSaludar {
+
+    public static void saludar(){
+        System.out.println("¡Hola! Bienvenido al programa.");
+        System.out.println("Este es tu primer método en Java.");
+    }
+
+    public static void main(String[] args){
+        saludar();
+
+        System.out.println("El método terminó, continuamos aquí.");
+
+        saludar();
+    }
 }
 </pre>
+
+<p>
+Este tipo de método es útil cuando siempre queremos ejecutar las mismas instrucciones sin necesidad de recibir información adicional.
+</p>
 
 <h4>Método con parámetros</h4>
 
 <p>
-Los parámetros son datos que enviamos al método para que pueda trabajar con ellos.
+Los parámetros son datos que enviamos al método para que pueda trabajar con ellos. Son parecidos a los ingredientes que utilizamos en una receta.
 </p>
 
 <pre>
-public static void sumar(int a, int b){
-    int resultado = a + b;
-    System.out.println(a + " + " + b + " = " + resultado);
-}
+public class MetodoSuma {
 
-sumar(3, 7);
+    public static void sumar(int a, int b){
+        int resultado = a + b;
+        System.out.println(a + " + " + b + " = " + resultado);
+    }
+
+    public static void main(String[] args){
+        sumar(3, 7);
+        sumar(15, 20);
+        sumar(100, 50);
+    }
+}
 </pre>
+
+<p>
+Los parámetros son las variables declaradas en el método (a y b), mientras que los argumentos son los valores reales enviados al llamarlo.
+</p>
 
 <h4>Método con retorno</h4>
 
 <p>
-Algunos métodos necesitan devolver un resultado para que pueda utilizarse más adelante. Para ello utilizamos la palabra <strong>return</strong>.
+A veces necesitamos que el método devuelva un resultado para utilizarlo más adelante. Para ello se utiliza la palabra <strong>return</strong>.
 </p>
 
 <pre>
-public static int calcularCuadrado(int numero){
+public class MetodoRetorno {
+
+    public static int calcularCuadrado(int numero){
+        int cuadrado = numero * numero;
+        return cuadrado;
+    }
+
+    public static void main(String[] args){
+
+        int resultado1 = calcularCuadrado(4);
+        int resultado2 = calcularCuadrado(7);
+
+        System.out.println("El cuadrado de 4 es: " + resultado1);
+        System.out.println("El cuadrado de 7 es: " + resultado2);
+
+        System.out.println("El cuadrado de 10 es: " + calcularCuadrado(10));
+    }
+}
+</pre>
+
+<p>
+Este tipo de método es muy útil cuando necesitamos obtener un valor para seguir trabajando con él dentro del programa.
+</p>
+
+<h3>Resumen: tipos de métodos</h3>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Tipo</th>
+<th>void o tipo</th>
+<th>Tiene return</th>
+<th>Ejemplo</th>
+</tr>
+
+<tr>
+<td>Sin parámetros, sin retorno</td>
+<td>void</td>
+<td>No</td>
+<td>public static void saludar()</td>
+</tr>
+
+<tr>
+<td>Con parámetros, sin retorno</td>
+<td>void</td>
+<td>No</td>
+<td>public static void sumar(int a, int b)</td>
+</tr>
+
+<tr>
+<td>Con parámetros y retorno</td>
+<td>int, double, String, etc.</td>
+<td>Sí</td>
+<td>public static int cuadrado(int n)</td>
+</tr>
+
+</table>
+
+<h3>Ejercicios de Métodos</h3>
+
+<h4>Ejercicio 1 — Mensaje de bienvenida</h4>
+
+<p>
+Problema: Crear un método que muestre un mensaje de bienvenida en pantalla.
+</p>
+
+<pre>
+public static void bienvenida(){
+    System.out.println("¡Bienvenido al sistema!");
+    System.out.println("Hoy aprenderás sobre métodos en Java.");
+}
+</pre>
+
+<p>
+Para llamarlo:
+</p>
+
+<pre>
+bienvenida();
+</pre>
+
+<h4>Ejercicio 2 — Multiplicación</h4>
+
+<p>
+Problema: Crear un método que reciba dos números y muestre su producto.
+</p>
+
+<pre>
+public static void multiplicar(int a, int b){
+    System.out.println(a + " x " + b + " = " + (a * b));
+}
+</pre>
+
+<p>
+Para llamarlo:
+</p>
+
+<pre>
+multiplicar(4, 5);
+</pre>
+
+<h4>Ejercicio 3 — Cuadrado de un número</h4>
+
+<p>
+Problema: Crear un método que reciba un número y retorne su cuadrado.
+</p>
+
+<pre>
+public static int cuadrado(int numero){
     return numero * numero;
 }
 </pre>
 
 <p>
-Este método recibe un número y devuelve su cuadrado.
+Para llamarlo:
 </p>
+
+<pre>
+int resultado = cuadrado(6);
+</pre>
+
+<h3>Resumen de Métodos</h3>
+
+<p>
+Los métodos son una de las herramientas más importantes de la programación porque permiten organizar mejor el código, evitar repeticiones y facilitar el mantenimiento de los programas. Gracias a ellos es posible dividir problemas grandes en tareas más pequeñas y fáciles de entender.
+</p>
+
+<h3>Conceptos estudiados en esta sección</h3>
+
+<ul>
+    <li>¿Qué es un método?</li>
+    <li>Partes de un método</li>
+    <li>Métodos sin parámetros y sin retorno</li>
+    <li>Métodos con parámetros</li>
+    <li>Métodos con retorno</li>
+    <li>Uso de parámetros y argumentos</li>
+    <li>Uso de la palabra return</li>
+    <li>Aplicación de métodos mediante ejercicios prácticos</li>
+</ul>
+```
+
 </body>
 </html>
