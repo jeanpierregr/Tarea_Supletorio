@@ -1043,7 +1043,359 @@ Las listas dinámicas permiten almacenar información de forma flexible, ya que 
 <li>Aplicación mediante ejercicios prácticos</li>
 </ul>
 
+```html
 <hr>
+
+<h2>5. Manejo de Archivos</h2>
+
+<p>
+Hasta ahora hemos trabajado con variables, vectores, matrices y listas para almacenar información. Sin embargo, todos esos datos permanecen únicamente en la memoria de la computadora mientras el programa está en ejecución.
+</p>
+
+<p>
+Cuando cerramos el programa, la información almacenada desaparece. Por esta razón es necesario utilizar archivos, ya que permiten guardar datos de forma permanente para poder utilizarlos nuevamente más adelante.
+</p>
+
+<h3>¿Por qué necesitamos archivos?</h3>
+
+<p>
+Los archivos permiten almacenar información importante para que siga existiendo incluso después de cerrar el programa. Gracias a ellos es posible guardar configuraciones, registros, tareas, notas, usuarios y muchos otros tipos de información.
+</p>
+
+<p>
+Algunos ejemplos donde se utiliza el manejo de archivos son:
+</p>
+
+<ul>
+<li>Guardar información de estudiantes.</li>
+<li>Registrar ventas de una tienda.</li>
+<li>Almacenar listas de tareas.</li>
+<li>Guardar configuraciones de una aplicación.</li>
+<li>Crear reportes y documentos.</li>
+</ul>
+
+<h3>Clases necesarias</h3>
+
+<p>
+Para trabajar con archivos en Java debemos importar algunas clases del paquete <strong>java.io</strong>.
+</p>
+
+<pre>
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+</pre>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Clase</th>
+<th>Función</th>
+</tr>
+
+<tr>
+<td>FileWriter</td>
+<td>Permite escribir información en un archivo.</td>
+</tr>
+
+<tr>
+<td>BufferedWriter</td>
+<td>Mejora el rendimiento al escribir.</td>
+</tr>
+
+<tr>
+<td>FileReader</td>
+<td>Permite leer información desde un archivo.</td>
+</tr>
+
+<tr>
+<td>BufferedReader</td>
+<td>Facilita la lectura línea por línea.</td>
+</tr>
+
+<tr>
+<td>IOException</td>
+<td>Permite manejar errores relacionados con archivos.</td>
+</tr>
+
+</table>
+
+<h3>Escribir en un archivo</h3>
+
+<p>
+El siguiente ejemplo crea un archivo llamado <strong>tutorial_java.txt</strong> y guarda información dentro de él.
+</p>
+
+<pre>
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class GuardarInformacion {
+
+    public static void main(String[] args) {
+
+        String nombreArchivo = "tutorial_java.txt";
+
+        try(BufferedWriter escritor =
+            new BufferedWriter(new FileWriter(nombreArchivo))){
+
+            escritor.write("Nombre: Jean Pierre");
+            escritor.newLine();
+
+            escritor.write("Tema: Programacion en Java");
+            escritor.newLine();
+
+            escritor.write("Nivel: Principiante");
+            escritor.newLine();
+
+            System.out.println("Archivo guardado correctamente.");
+
+        }catch(IOException e){
+
+            System.out.println("Error: " + e.getMessage());
+
+        }
+    }
+}
+</pre>
+
+<h4>¿Cómo funciona paso a paso?</h4>
+
+<ol>
+<li>Se crea el archivo tutorial_java.txt.</li>
+<li>Se abre un canal de escritura.</li>
+<li>Se escriben varias líneas de texto.</li>
+<li>Se guarda la información.</li>
+<li>El archivo se cierra automáticamente.</li>
+</ol>
+
+<h3>Leer un archivo</h3>
+
+<p>
+Después de guardar información también podemos leerla.
+</p>
+
+<pre>
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class MostrarInformacion {
+
+    public static void main(String[] args) {
+
+        String nombreArchivo = "tutorial_java.txt";
+
+        try(BufferedReader lector =
+            new BufferedReader(new FileReader(nombreArchivo))){
+
+            String linea;
+
+            System.out.println("Contenido del archivo:");
+
+            while((linea = lector.readLine()) != null){
+
+                System.out.println(linea);
+
+            }
+
+        }catch(IOException e){
+
+            System.out.println("Error: " + e.getMessage());
+
+        }
+    }
+}
+</pre>
+
+<h4>¿Cómo funciona paso a paso?</h4>
+
+<ol>
+<li>Se abre el archivo.</li>
+<li>Se lee una línea a la vez.</li>
+<li>La información se muestra en pantalla.</li>
+<li>Cuando ya no existen más líneas, el ciclo termina.</li>
+<li>El archivo se cierra automáticamente.</li>
+</ol>
+
+<h3>Procesar información de un archivo</h3>
+
+<p>
+Además de leer archivos, también podemos analizar su contenido. En este ejemplo contamos cuántas líneas tiene un archivo.
+</p>
+
+<pre>
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ContarLineas {
+
+    public static void main(String[] args) {
+
+        String nombreArchivo = "tutorial_java.txt";
+
+        int contador = 0;
+
+        try(BufferedReader lector =
+            new BufferedReader(new FileReader(nombreArchivo))){
+
+            while(lector.readLine() != null){
+
+                contador++;
+
+            }
+
+            System.out.println(
+                "Total de lineas: " + contador
+            );
+
+        }catch(IOException e){
+
+            System.out.println("Error: " + e.getMessage());
+
+        }
+    }
+}
+</pre>
+
+<h3>El bloque try-catch</h3>
+
+<p>
+Cuando trabajamos con archivos pueden ocurrir errores. Por ejemplo, el archivo podría no existir o no tener permisos para ser abierto.
+</p>
+
+<p>
+Para evitar que el programa se detenga inesperadamente utilizamos los bloques try-catch.
+</p>
+
+<pre>
+try{
+
+    // Codigo que puede generar errores
+
+}catch(IOException e){
+
+    System.out.println(
+        "Error: " + e.getMessage()
+    );
+
+}
+</pre>
+
+<p>
+El bloque <strong>try</strong> contiene el código que puede fallar y el bloque <strong>catch</strong> se ejecuta cuando ocurre algún problema.
+</p>
+
+<h3>Ejercicios de Manejo de Archivos</h3>
+
+<h4>Ejercicio 1 — Guardar tareas en un archivo</h4>
+
+<p>
+Crear un archivo y guardar varias tareas pendientes.
+</p>
+
+<pre>
+try(BufferedWriter bw =
+    new BufferedWriter(
+        new FileWriter("tareas.txt"))){
+
+    bw.write("Estudiar Java");
+    bw.newLine();
+
+    bw.write("Realizar ejercicios");
+    bw.newLine();
+
+    bw.write("Preparar proyecto");
+
+}catch(IOException e){
+
+    System.out.println(e.getMessage());
+
+}
+</pre>
+
+<h4>Ejercicio 2 — Leer una lista de tareas</h4>
+
+<p>
+Mostrar todas las tareas almacenadas en un archivo.
+</p>
+
+<pre>
+try(BufferedReader br =
+    new BufferedReader(
+        new FileReader("tareas.txt"))){
+
+    String linea;
+
+    while((linea = br.readLine()) != null){
+
+        System.out.println(linea);
+
+    }
+
+}catch(IOException e){
+
+    System.out.println(e.getMessage());
+
+}
+</pre>
+
+<h4>Ejercicio 3 — Contar tareas registradas</h4>
+
+<p>
+Determinar cuántas tareas existen dentro del archivo.
+</p>
+
+<pre>
+int contador = 0;
+
+try(BufferedReader br =
+    new BufferedReader(
+        new FileReader("tareas.txt"))){
+
+    while(br.readLine() != null){
+
+        contador++;
+
+    }
+
+}catch(IOException e){
+
+    System.out.println(e.getMessage());
+
+}
+
+System.out.println(
+    "Total de tareas: " + contador
+);
+</pre>
+
+<h3>Conclusión de la sección</h3>
+
+<p>
+El manejo de archivos permite almacenar información de manera permanente, algo fundamental en la mayoría de aplicaciones actuales. Gracias a las herramientas que ofrece Java es posible crear, leer y procesar archivos de forma sencilla y segura.
+</p>
+
+<h3>Resumen de Manejo de Archivos</h3>
+
+<ul>
+<li>Persistencia de datos.</li>
+<li>FileWriter.</li>
+<li>BufferedWriter.</li>
+<li>FileReader.</li>
+<li>BufferedReader.</li>
+<li>Escritura de archivos.</li>
+<li>Lectura de archivos.</li>
+<li>Procesamiento de información.</li>
+<li>Try-Catch.</li>
+<li>Manejo de excepciones.</li>
+</ul>
+
+<hr>
+
 
 </body>
 </html>
