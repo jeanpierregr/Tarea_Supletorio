@@ -486,6 +486,297 @@ Los métodos son una de las herramientas más importantes de la programación po
     <li>Aplicación de métodos mediante ejercicios prácticos</li>
 </ul>
 ```
+<hr>
+
+```html
+<h2>3. Vectores y Matrices</h2>
+
+<p>
+A medida que los programas crecen, surge la necesidad de almacenar grandes cantidades de información. Para resolver este problema existen los vectores y las matrices, estructuras que permiten organizar múltiples datos de forma sencilla y eficiente.
+</p>
+
+<h3>¿Qué problema resuelven?</h3>
+
+<p>
+Imagina que necesitas guardar las calificaciones de 30 estudiantes. Sin vectores tendrías que crear una variable para cada nota:
+</p>
+
+<pre>
+int nota1 = 8;
+int nota2 = 7;
+int nota3 = 9;
+// ...
+</pre>
+
+<p>
+Esto sería difícil de mantener. Con un vector podemos almacenar todos esos datos utilizando una sola variable.
+</p>
+
+<pre>
+int[] notas = {8, 7, 9, 6, 10};
+</pre>
+
+<h3>¿Qué es un vector?</h3>
+
+<p>
+Un vector (también conocido como arreglo o array) es una estructura que almacena varios valores del mismo tipo bajo un único nombre.
+</p>
+
+<p>
+Cada elemento ocupa una posición llamada <strong>índice</strong>, y los índices comienzan desde 0.
+</p>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Índice</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+
+<tr>
+<th>Valor</th>
+<td>8</td>
+<td>7</td>
+<td>9</td>
+<td>6</td>
+<td>10</td>
+</tr>
+</table>
+
+<p>
+Para acceder al primer elemento utilizamos:
+</p>
+
+<pre>
+notas[0]
+</pre>
+
+<p>
+Para acceder al tercer elemento:
+</p>
+
+<pre>
+notas[2]
+</pre>
+
+<h3>Crear un vector</h3>
+
+<p>
+Existen diferentes formas de crear un vector en Java.
+</p>
+
+<h4>Forma 1: Inicialización directa</h4>
+
+<pre>
+int[] numeros = {10, 20, 30, 40, 50};
+</pre>
+
+<h4>Forma 2: Definiendo el tamaño</h4>
+
+<pre>
+int[] numeros = new int[5];
+
+numeros[0] = 10;
+numeros[1] = 20;
+numeros[2] = 30;
+numeros[3] = 40;
+numeros[4] = 50;
+</pre>
+
+<p>
+Ambas formas producen el mismo resultado.
+</p>
+
+<h3>Ejemplo completo de vector</h3>
+
+<pre>
+public class VectorBasico {
+
+    public static void main(String[] args) {
+
+        String[] frutas = {
+            "Manzana",
+            "Banana",
+            "Cereza",
+            "Durazno",
+            "Uva"
+        };
+
+        System.out.println(frutas[0]);
+        System.out.println(frutas[2]);
+        System.out.println(frutas[4]);
+
+        System.out.println(frutas.length);
+    }
+}
+</pre>
+
+<h3>¿Cómo funciona paso a paso?</h3>
+
+<p>
+La computadora realiza las siguientes acciones:
+</p>
+
+<ol>
+<li>Crea un vector con cinco elementos.</li>
+<li>Guarda cada fruta en una posición diferente.</li>
+<li>Accede a los elementos utilizando índices.</li>
+<li>Muestra el tamaño total utilizando <strong>length</strong>.</li>
+</ol>
+
+<h3>Recorrer un vector</h3>
+
+<p>
+Normalmente utilizamos un ciclo <strong>for</strong> para recorrer todos los elementos de un vector.
+</p>
+
+<pre>
+int[] numeros = {15, 30, 45, 60, 75};
+
+for(int i = 0; i < numeros.length; i++){
+    System.out.println(numeros[i]);
+}
+</pre>
+
+<p>
+La variable <strong>i</strong> representa cada posición del vector.
+</p>
+
+<hr>
+
+<h3>¿Qué es una matriz?</h3>
+
+<p>
+Si un vector es una fila de datos, una matriz es una tabla compuesta por filas y columnas.
+</p>
+
+<p>
+Una matriz puede compararse con una hoja de Excel donde cada celda tiene una fila y una columna.
+</p>
+
+<table border="1" cellpadding="10">
+<tr>
+<th></th>
+<th>Columna 0</th>
+<th>Columna 1</th>
+<th>Columna 2</th>
+</tr>
+
+<tr>
+<th>Fila 0</th>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+
+<tr>
+<th>Fila 1</th>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+
+<tr>
+<th>Fila 2</th>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+</tr>
+</table>
+
+<p>
+Para acceder al número 5 utilizamos:
+</p>
+
+<pre>
+matriz[1][1]
+</pre>
+
+<h3>Ejemplo completo de matriz</h3>
+
+<pre>
+int[][] matriz = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+System.out.println(matriz[1][1]);
+</pre>
+
+<p>
+Resultado:
+</p>
+
+<pre>
+5
+</pre>
+
+<h3>¿Cómo funciona paso a paso?</h3>
+
+<ol>
+<li>Se crea una matriz de 3 filas y 3 columnas.</li>
+<li>Cada número ocupa una posición específica.</li>
+<li>El primer índice representa la fila.</li>
+<li>El segundo índice representa la columna.</li>
+<li>matriz[1][1] accede al valor 5.</li>
+</ol>
+
+<h3>Ejercicios de Vectores y Matrices</h3>
+
+<h4>Ejercicio 1 — Crear un vector</h4>
+
+<p>
+Crear un vector que almacene cinco números enteros.
+</p>
+
+<pre>
+int[] numeros = {1, 2, 3, 4, 5};
+</pre>
+
+<h4>Ejercicio 2 — Mostrar los elementos de un vector</h4>
+
+<pre>
+int[] numeros = {10, 20, 30, 40, 50};
+
+for(int i = 0; i < numeros.length; i++){
+    System.out.println(numeros[i]);
+}
+</pre>
+
+<h4>Ejercicio 3 — Crear una matriz 3x3</h4>
+
+<pre>
+int[][] matriz = {
+    {1,2,3},
+    {4,5,6},
+    {7,8,9}
+};
+</pre>
+
+<h3>Resumen de Vectores y Matrices</h3>
+
+<p>
+Los vectores y matrices permiten almacenar grandes cantidades de información de forma organizada. Gracias a estas estructuras es posible trabajar con colecciones de datos sin necesidad de crear decenas de variables independientes.
+</p>
+
+<h3>Conceptos estudiados en esta sección</h3>
+
+<ul>
+<li>Vectores</li>
+<li>Índices</li>
+<li>Recorrido de vectores</li>
+<li>Matrices</li>
+<li>Filas y columnas</li>
+<li>Acceso a elementos</li>
+<li>Uso de ciclos para recorrer datos</li>
+</ul>
+
+<hr>
+```
 
 </body>
 </html>
