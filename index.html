@@ -90,13 +90,13 @@ El ciclo for tiene tres partes:
 <h4>Ejemplo</h4>
 
 <pre>
-for(int i = 1; i <= 5; i++){
+for(int i = 10; i >= 1; i--){
     System.out.println(i);
 }
 </pre>
 
 <p>
-Este programa mostrará los números del 1 al 5 en pantalla.
+Este programa mostrará los números del 10 al 1 en orden descendente.
 </p>
 
 <h3>Ciclo While</h3>
@@ -116,16 +116,16 @@ while(condicion){
 <h4>Ejemplo</h4>
 
 <pre>
-int numero = 1;
+int contador = 100;
 
-while(numero <= 5){
-    System.out.println(numero);
-    numero++;
+while(contador >= 10){
+    System.out.println(contador);
+    contador -= 10;
 }
 </pre>
 
 <p>
-Este programa imprime los números del 1 al 5 utilizando una condición que se evalúa antes de cada repetición.
+Este programa imprime los múltiplos de 10 desde 100 hasta 10, reduciendo el contador en cada repetición.
 </p>
 
 <h3>Ciclo Do-While</h3>
@@ -145,16 +145,16 @@ do{
 <h4>Ejemplo</h4>
 
 <pre>
-int numero = 1;
+int valor = 5;
 
 do{
-    System.out.println(numero);
-    numero++;
-}while(numero <= 5);
+    System.out.println("El valor es: " + valor);
+    valor += 5;
+}while(valor <= 25);
 </pre>
 
 <p>
-En este caso, el bloque de instrucciones se ejecuta primero y luego se verifica la condición.
+En este caso, el bloque de instrucciones se ejecuta primero y luego se verifica la condición, mostrando los múltiplos de 5 hasta 25.
 </p>
 
 <h3>Resumen de Ciclos</h3>
@@ -167,40 +167,43 @@ En este caso, el bloque de instrucciones se ejecuta primero y luego se verifica 
 
 <h3>Ejercicios de Ciclos</h3>
 
-<h4>Ejercicio 1: Números del 1 al 20</h4>
+<h4>Ejercicio 1: Números impares del 1 al 19</h4>
 
 <pre>
-for(int i = 1; i <= 20; i++){
+for(int i = 1; i <= 19; i += 2){
     System.out.println(i);
 }
 </pre>
 
 <p>
-Resultado: 1 2 3 4 ... 20
+Resultado: 1 3 5 7 ... 19
 </p>
 
-<h4>Ejercicio 2: Números pares del 1 al 100</h4>
+<h4>Ejercicio 2: Cuenta regresiva del 50 al 0</h4>
 
 <pre>
-for(int i = 2; i <= 100; i += 2){
-    System.out.println(i);
+int n = 50;
+
+while(n >= 0){
+    System.out.println(n);
+    n -= 5;
 }
 </pre>
 
 <p>
-Resultado: 2 4 6 8 ... 100
+Resultado: 50 45 40 35 ... 0
 </p>
 
-<h4>Ejercicio 3: Tabla de multiplicar del 5</h4>
+<h4>Ejercicio 3: Tabla de multiplicar del 7</h4>
 
 <pre>
 for(int i = 1; i <= 10; i++){
-    System.out.println("5 x " + i + " = " + (5 * i));
+    System.out.println("7 x " + i + " = " + (7 * i));
 }
 </pre>
 
 <p>
-Resultado: 5 x 1 = 5, 5 x 2 = 10, ... , 5 x 10 = 50
+Resultado: 7 x 1 = 7, 7 x 2 = 14, ... , 7 x 10 = 70
 </p>
 
 <h3>Resumen de Ciclos</h3>
@@ -292,19 +295,19 @@ Es el tipo más sencillo. Solo ejecuta instrucciones cuando lo llamamos, no nece
 </p>
 
 <pre>
-public class MetodoSaludar {
+public class MetodoMensaje {
 
-    public static void saludar(){
-        System.out.println("¡Hola! Bienvenido al programa.");
-        System.out.println("Este es tu primer método en Java.");
+    public static void mostrarFecha(){
+        System.out.println("Hoy es lunes.");
+        System.out.println("Es un buen día para aprender Java.");
     }
 
     public static void main(String[] args){
-        saludar();
+        mostrarFecha();
 
         System.out.println("El método terminó, continuamos aquí.");
 
-        saludar();
+        mostrarFecha();
     }
 }
 </pre>
@@ -320,17 +323,17 @@ Los parámetros son datos que enviamos al método para que pueda trabajar con el
 </p>
 
 <pre>
-public class MetodoSuma {
+public class MetodoResta {
 
-    public static void sumar(int a, int b){
-        int resultado = a + b;
-        System.out.println(a + " + " + b + " = " + resultado);
+    public static void restar(int a, int b){
+        int resultado = a - b;
+        System.out.println(a + " - " + b + " = " + resultado);
     }
 
     public static void main(String[] args){
-        sumar(3, 7);
-        sumar(15, 20);
-        sumar(100, 50);
+        restar(10, 3);
+        restar(50, 25);
+        restar(200, 75);
     }
 }
 </pre>
@@ -348,20 +351,20 @@ A veces necesitamos que el método devuelva un resultado para utilizarlo más ad
 <pre>
 public class MetodoRetorno {
 
-    public static int calcularCuadrado(int numero){
-        int cuadrado = numero * numero;
-        return cuadrado;
+    public static double calcularPromedio(double nota1, double nota2){
+        double promedio = (nota1 + nota2) / 2;
+        return promedio;
     }
 
     public static void main(String[] args){
 
-        int resultado1 = calcularCuadrado(4);
-        int resultado2 = calcularCuadrado(7);
+        double resultado1 = calcularPromedio(8.0, 6.0);
+        double resultado2 = calcularPromedio(9.5, 7.5);
 
-        System.out.println("El cuadrado de 4 es: " + resultado1);
-        System.out.println("El cuadrado de 7 es: " + resultado2);
+        System.out.println("El promedio es: " + resultado1);
+        System.out.println("El promedio es: " + resultado2);
 
-        System.out.println("El cuadrado de 10 es: " + calcularCuadrado(10));
+        System.out.println("Otro promedio: " + calcularPromedio(10.0, 5.0));
     }
 }
 </pre>
@@ -384,37 +387,37 @@ Este tipo de método es muy útil cuando necesitamos obtener un valor para segui
 <td>Sin parámetros, sin retorno</td>
 <td>void</td>
 <td>No</td>
-<td>public static void saludar()</td>
+<td>public static void mostrarFecha()</td>
 </tr>
 
 <tr>
 <td>Con parámetros, sin retorno</td>
 <td>void</td>
 <td>No</td>
-<td>public static void sumar(int a, int b)</td>
+<td>public static void restar(int a, int b)</td>
 </tr>
 
 <tr>
 <td>Con parámetros y retorno</td>
 <td>int, double, String, etc.</td>
 <td>Sí</td>
-<td>public static int cuadrado(int n)</td>
+<td>public static double promedio(double n1, double n2)</td>
 </tr>
 
 </table>
 
 <h3>Ejercicios de Métodos</h3>
 
-<h4>Ejercicio 1 — Mensaje de bienvenida</h4>
+<h4>Ejercicio 1 — Mensaje de despedida</h4>
 
 <p>
-Problema: Crear un método que muestre un mensaje de bienvenida en pantalla.
+Problema: Crear un método que muestre un mensaje de despedida en pantalla.
 </p>
 
 <pre>
-public static void bienvenida(){
-    System.out.println("¡Bienvenido al sistema!");
-    System.out.println("Hoy aprenderás sobre métodos en Java.");
+public static void despedida(){
+    System.out.println("¡Hasta pronto!");
+    System.out.println("Gracias por usar este programa.");
 }
 </pre>
 
@@ -423,18 +426,18 @@ Para llamarlo:
 </p>
 
 <pre>
-bienvenida();
+despedida();
 </pre>
 
-<h4>Ejercicio 2 — Multiplicación</h4>
+<h4>Ejercicio 2 — División</h4>
 
 <p>
-Problema: Crear un método que reciba dos números y muestre su producto.
+Problema: Crear un método que reciba dos números y muestre el resultado de su división.
 </p>
 
 <pre>
-public static void multiplicar(int a, int b){
-    System.out.println(a + " x " + b + " = " + (a * b));
+public static void dividir(double a, double b){
+    System.out.println(a + " / " + b + " = " + (a / b));
 }
 </pre>
 
@@ -443,18 +446,18 @@ Para llamarlo:
 </p>
 
 <pre>
-multiplicar(4, 5);
+dividir(20.0, 4.0);
 </pre>
 
-<h4>Ejercicio 3 — Cuadrado de un número</h4>
+<h4>Ejercicio 3 — Área de un rectángulo</h4>
 
 <p>
-Problema: Crear un método que reciba un número y retorne su cuadrado.
+Problema: Crear un método que reciba la base y la altura de un rectángulo y retorne su área.
 </p>
 
 <pre>
-public static int cuadrado(int numero){
-    return numero * numero;
+public static double areaRectangulo(double base, double altura){
+    return base * altura;
 }
 </pre>
 
@@ -463,7 +466,7 @@ Para llamarlo:
 </p>
 
 <pre>
-int resultado = cuadrado(6);
+double area = areaRectangulo(5.0, 3.0);
 </pre>
 
 <h3>Resumen de Métodos</h3>
@@ -484,10 +487,9 @@ Los métodos son una de las herramientas más importantes de la programación po
     <li>Uso de la palabra return</li>
     <li>Aplicación de métodos mediante ejercicios prácticos</li>
 </ul>
-```
+
 <hr>
 
-```html
 <h2>3. Vectores y Matrices</h2>
 
 <p>
@@ -596,19 +598,19 @@ public class VectorBasico {
 
     public static void main(String[] args) {
 
-        String[] frutas = {
-            "Manzana",
-            "Banana",
-            "Cereza",
-            "Durazno",
-            "Uva"
+        String[] ciudades = {
+            "Quito",
+            "Guayaquil",
+            "Cuenca",
+            "Ambato",
+            "Loja"
         };
 
-        System.out.println(frutas[0]);
-        System.out.println(frutas[2]);
-        System.out.println(frutas[4]);
+        System.out.println(ciudades[0]);
+        System.out.println(ciudades[2]);
+        System.out.println(ciudades[4]);
 
-        System.out.println(frutas.length);
+        System.out.println(ciudades.length);
     }
 }
 </pre>
@@ -621,7 +623,7 @@ La computadora realiza las siguientes acciones:
 
 <ol>
 <li>Crea un vector con cinco elementos.</li>
-<li>Guarda cada fruta en una posición diferente.</li>
+<li>Guarda cada ciudad en una posición diferente.</li>
 <li>Accede a los elementos utilizando índices.</li>
 <li>Muestra el tamaño total utilizando <strong>length</strong>.</li>
 </ol>
@@ -633,10 +635,10 @@ Normalmente utilizamos un ciclo <strong>for</strong> para recorrer todos los ele
 </p>
 
 <pre>
-int[] numeros = {15, 30, 45, 60, 75};
+double[] temperaturas = {18.5, 22.0, 19.3, 25.1, 17.8};
 
-for(int i = 0; i < numeros.length; i++){
-    System.out.println(numeros[i]);
+for(int i = 0; i < temperaturas.length; i++){
+    System.out.println(temperaturas[i]);
 }
 </pre>
 
@@ -697,13 +699,14 @@ matriz[1][1]
 <h3>Ejemplo completo de matriz</h3>
 
 <pre>
-int[][] matriz = {
-    {1, 2, 3},
-    {4, 5, 6},
-    {7, 8, 9}
+int[][] notas = {
+    {10, 8, 9},
+    {7, 6, 8},
+    {9, 10, 7}
 };
 
-System.out.println(matriz[1][1]);
+System.out.println(notas[0][0]);
+System.out.println(notas[1][2]);
 </pre>
 
 <p>
@@ -711,7 +714,8 @@ Resultado:
 </p>
 
 <pre>
-5
+10
+8
 </pre>
 
 <h3>¿Cómo funciona paso a paso?</h3>
@@ -721,38 +725,37 @@ Resultado:
 <li>Cada número ocupa una posición específica.</li>
 <li>El primer índice representa la fila.</li>
 <li>El segundo índice representa la columna.</li>
-<li>matriz[1][1] accede al valor 5.</li>
+<li>notas[0][0] accede al valor 10 y notas[1][2] accede al valor 8.</li>
 </ol>
 
 <h3>Ejercicios de Vectores y Matrices</h3>
 
-<h4>Ejercicio 1 — Crear un vector</h4>
+<h4>Ejercicio 1 — Crear un vector de nombres</h4>
 
 <p>
-Crear un vector que almacene cinco números enteros.
+Crear un vector que almacene cinco nombres de personas.
 </p>
 
 <pre>
-int[] numeros = {1, 2, 3, 4, 5};
+String[] nombres = {"Ana", "Luis", "María", "Carlos", "Sofía"};
 </pre>
 
-<h4>Ejercicio 2 — Mostrar los elementos de un vector</h4>
+<h4>Ejercicio 2 — Mostrar los elementos de un vector con su posición</h4>
 
 <pre>
-int[] numeros = {10, 20, 30, 40, 50};
+int[] edades = {20, 22, 19, 25, 21};
 
-for(int i = 0; i < numeros.length; i++){
-    System.out.println(numeros[i]);
+for(int i = 0; i < edades.length; i++){
+    System.out.println("Posicion " + i + ": " + edades[i]);
 }
 </pre>
 
-<h4>Ejercicio 3 — Crear una matriz 3x3</h4>
+<h4>Ejercicio 3 — Crear una matriz 2x3</h4>
 
 <pre>
 int[][] matriz = {
-    {1,2,3},
-    {4,5,6},
-    {7,8,9}
+    {1, 2, 3},
+    {4, 5, 6}
 };
 </pre>
 
@@ -856,9 +859,9 @@ Luego creamos la lista indicando el tipo de dato que almacenará:
 </p>
 
 <pre>
-ArrayList<String> nombres = new ArrayList<>();
-ArrayList<Integer> numeros = new ArrayList<>();
-ArrayList<Double> precios = new ArrayList<>();
+ArrayList&lt;String&gt; nombres = new ArrayList&lt;&gt;();
+ArrayList&lt;Integer&gt; numeros = new ArrayList&lt;&gt;();
+ArrayList&lt;Double&gt; precios = new ArrayList&lt;&gt;();
 </pre>
 
 <h3>Métodos principales</h3>
@@ -917,17 +920,17 @@ public class ListaBasica {
 
     public static void main(String[] args) {
 
-        ArrayList<String> paises = new ArrayList<>();
+        ArrayList&lt;String&gt; materias = new ArrayList&lt;&gt;();
 
-        paises.add("Ecuador");
-        paises.add("Colombia");
-        paises.add("Perú");
-        paises.add("Argentina");
+        materias.add("Matemáticas");
+        materias.add("Programación");
+        materias.add("Física");
+        materias.add("Inglés");
 
-        System.out.println("Número de países: " + paises.size());
+        System.out.println("Número de materias: " + materias.size());
 
-        System.out.println("Primer país: " + paises.get(0));
-        System.out.println("Tercer país: " + paises.get(2));
+        System.out.println("Primera materia: " + materias.get(0));
+        System.out.println("Tercera materia: " + materias.get(2));
     }
 }
 </pre>
@@ -945,16 +948,16 @@ public class ListaBasica {
 <h3>Ejemplo: Agregar y eliminar elementos</h3>
 
 <pre>
-ArrayList<Integer> numeros = new ArrayList<>();
+ArrayList&lt;String&gt; animales = new ArrayList&lt;&gt;();
 
-numeros.add(10);
-numeros.add(20);
-numeros.add(30);
-numeros.add(40);
+animales.add("Perro");
+animales.add("Gato");
+animales.add("Conejo");
+animales.add("Loro");
 
-numeros.remove(2);
+animales.remove(1);
 
-System.out.println(numeros);
+System.out.println(animales);
 </pre>
 
 <p>
@@ -964,14 +967,14 @@ Cuando se elimina un elemento, los elementos posteriores se desplazan automátic
 <h3>Ejemplo: Recorrer una lista</h3>
 
 <pre>
-ArrayList<String> colores = new ArrayList<>();
+ArrayList&lt;Integer&gt; calificaciones = new ArrayList&lt;&gt;();
 
-colores.add("Rojo");
-colores.add("Verde");
-colores.add("Azul");
+calificaciones.add(9);
+calificaciones.add(7);
+calificaciones.add(10);
 
-for(String color : colores){
-    System.out.println(color);
+for(int nota : calificaciones){
+    System.out.println("Nota: " + nota);
 }
 </pre>
 
@@ -981,43 +984,43 @@ El ciclo for-each es una de las formas más sencillas de recorrer una lista cuan
 
 <h3>Ejercicios de Listas</h3>
 
-<h4>Ejercicio 1 — Crear una lista de nombres</h4>
+<h4>Ejercicio 1 — Crear una lista de materias</h4>
 
 <p>
-Crear un ArrayList que almacene nombres de personas.
+Crear un ArrayList que almacene nombres de materias universitarias.
 </p>
 
 <pre>
-ArrayList<String> nombres = new ArrayList<>();
+ArrayList&lt;String&gt; materias = new ArrayList&lt;&gt;();
 
 System.out.println(
-    "Lista creada. Elementos: " + nombres.size()
+    "Lista creada. Elementos: " + materias.size()
 );
 </pre>
 
-<h4>Ejercicio 2 — Agregar elementos</h4>
+<h4>Ejercicio 2 — Agregar y mostrar elementos</h4>
 
 <p>
-Agregar tres nombres a una lista y mostrar su contenido.
+Agregar tres materias a la lista y mostrar su contenido.
 </p>
 
 <pre>
-nombres.add("Ana");
-nombres.add("Luis");
-nombres.add("Carlos");
+materias.add("Cálculo");
+materias.add("Física");
+materias.add("Programación");
 
-System.out.println(nombres);
+System.out.println(materias);
 </pre>
 
-<h4>Ejercicio 3 — Mostrar todos los elementos</h4>
+<h4>Ejercicio 3 — Mostrar todos los elementos con for-each</h4>
 
 <p>
-Recorrer una lista utilizando un ciclo for-each.
+Recorrer la lista utilizando un ciclo for-each e imprimir cada materia.
 </p>
 
 <pre>
-for(String nombre : nombres){
-    System.out.println(nombre);
+for(String materia : materias){
+    System.out.println("Materia: " + materia);
 }
 </pre>
 
