@@ -775,7 +775,272 @@ Los vectores y matrices permiten almacenar grandes cantidades de información de
 </ul>
 
 <hr>
-```
+
+<h2>4. Listas (ArrayList)</h2>
+
+<p>
+En muchos programas necesitamos almacenar una cantidad de datos que puede cambiar constantemente. Para estos casos Java ofrece las listas dinámicas mediante la clase ArrayList.
+</p>
+
+<h3>La limitación de los vectores</h3>
+
+<p>
+Los vectores tienen un problema importante: su tamaño es fijo. Una vez que declaramos un vector, no podemos agregar más elementos de los que fueron definidos inicialmente.
+</p>
+
+<pre>
+int[] numeros = new int[5];
+</pre>
+
+<p>
+El vector anterior siempre tendrá exactamente 5 posiciones. Si más adelante necesitamos una sexta posición, no podremos agregarla fácilmente.
+</p>
+
+<p>
+En muchos programas reales no sabemos cuántos datos necesitaremos almacenar. Para resolver este problema utilizamos listas dinámicas.
+</p>
+
+<h3>¿Qué es un ArrayList?</h3>
+
+<p>
+Un ArrayList es una colección que puede crecer o disminuir automáticamente según sea necesario. Java se encarga de administrar el tamaño internamente, permitiendo agregar o eliminar elementos con facilidad.
+</p>
+
+<h3>Vector vs ArrayList</h3>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Característica</th>
+<th>Vector (int[])</th>
+<th>ArrayList</th>
+</tr>
+
+<tr>
+<td>Tamaño</td>
+<td>Fijo, definido al crear</td>
+<td>Dinámico, cambia durante la ejecución</td>
+</tr>
+
+<tr>
+<td>Agregar elementos</td>
+<td>No se puede superar el tamaño inicial</td>
+<td>lista.add(elemento)</td>
+</tr>
+
+<tr>
+<td>Eliminar elementos</td>
+<td>No se puede reducir</td>
+<td>lista.remove(indice)</td>
+</tr>
+
+<tr>
+<td>Acceso por índice</td>
+<td>vector[i]</td>
+<td>lista.get(i)</td>
+</tr>
+
+</table>
+
+<h3>Sintaxis básica</h3>
+
+<p>
+Antes de utilizar un ArrayList debemos importar la clase correspondiente:
+</p>
+
+<pre>
+import java.util.ArrayList;
+</pre>
+
+<p>
+Luego creamos la lista indicando el tipo de dato que almacenará:
+</p>
+
+<pre>
+ArrayList<String> nombres = new ArrayList<>();
+ArrayList<Integer> numeros = new ArrayList<>();
+ArrayList<Double> precios = new ArrayList<>();
+</pre>
+
+<h3>Métodos principales</h3>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Método</th>
+<th>¿Qué hace?</th>
+<th>Ejemplo</th>
+</tr>
+
+<tr>
+<td>add(elemento)</td>
+<td>Agrega un elemento al final</td>
+<td>lista.add("Ana")</td>
+</tr>
+
+<tr>
+<td>get(i)</td>
+<td>Obtiene el elemento en la posición indicada</td>
+<td>lista.get(0)</td>
+</tr>
+
+<tr>
+<td>remove(i)</td>
+<td>Elimina el elemento de una posición</td>
+<td>lista.remove(2)</td>
+</tr>
+
+<tr>
+<td>size()</td>
+<td>Devuelve el número de elementos</td>
+<td>lista.size()</td>
+</tr>
+
+<tr>
+<td>contains(x)</td>
+<td>Indica si un elemento existe</td>
+<td>lista.contains("Ana")</td>
+</tr>
+
+<tr>
+<td>clear()</td>
+<td>Elimina todos los elementos</td>
+<td>lista.clear()</td>
+</tr>
+
+</table>
+
+<h3>Ejemplo completo: Lista básica</h3>
+
+<pre>
+import java.util.ArrayList;
+
+public class ListaBasica {
+
+    public static void main(String[] args) {
+
+        ArrayList<String> paises = new ArrayList<>();
+
+        paises.add("Ecuador");
+        paises.add("Colombia");
+        paises.add("Perú");
+        paises.add("Argentina");
+
+        System.out.println("Número de países: " + paises.size());
+
+        System.out.println("Primer país: " + paises.get(0));
+        System.out.println("Tercer país: " + paises.get(2));
+    }
+}
+</pre>
+
+<h3>¿Cómo funciona paso a paso?</h3>
+
+<ol>
+<li>Se crea una lista vacía.</li>
+<li>Se agregan elementos mediante add().</li>
+<li>La lista aumenta su tamaño automáticamente.</li>
+<li>size() devuelve la cantidad de elementos.</li>
+<li>get() permite acceder a una posición específica.</li>
+</ol>
+
+<h3>Ejemplo: Agregar y eliminar elementos</h3>
+
+<pre>
+ArrayList<Integer> numeros = new ArrayList<>();
+
+numeros.add(10);
+numeros.add(20);
+numeros.add(30);
+numeros.add(40);
+
+numeros.remove(2);
+
+System.out.println(numeros);
+</pre>
+
+<p>
+Cuando se elimina un elemento, los elementos posteriores se desplazan automáticamente para ocupar el espacio vacío.
+</p>
+
+<h3>Ejemplo: Recorrer una lista</h3>
+
+<pre>
+ArrayList<String> colores = new ArrayList<>();
+
+colores.add("Rojo");
+colores.add("Verde");
+colores.add("Azul");
+
+for(String color : colores){
+    System.out.println(color);
+}
+</pre>
+
+<p>
+El ciclo for-each es una de las formas más sencillas de recorrer una lista cuando solo necesitamos leer sus elementos.
+</p>
+
+<h3>Ejercicios de Listas</h3>
+
+<h4>Ejercicio 1 — Crear una lista de nombres</h4>
+
+<p>
+Crear un ArrayList que almacene nombres de personas.
+</p>
+
+<pre>
+ArrayList<String> nombres = new ArrayList<>();
+
+System.out.println(
+    "Lista creada. Elementos: " + nombres.size()
+);
+</pre>
+
+<h4>Ejercicio 2 — Agregar elementos</h4>
+
+<p>
+Agregar tres nombres a una lista y mostrar su contenido.
+</p>
+
+<pre>
+nombres.add("Ana");
+nombres.add("Luis");
+nombres.add("Carlos");
+
+System.out.println(nombres);
+</pre>
+
+<h4>Ejercicio 3 — Mostrar todos los elementos</h4>
+
+<p>
+Recorrer una lista utilizando un ciclo for-each.
+</p>
+
+<pre>
+for(String nombre : nombres){
+    System.out.println(nombre);
+}
+</pre>
+
+<h3>Resumen de Listas (ArrayList)</h3>
+
+<p>
+Las listas dinámicas permiten almacenar información de forma flexible, ya que pueden crecer o disminuir durante la ejecución del programa. Gracias a ArrayList es posible trabajar con conjuntos de datos sin preocuparnos por definir un tamaño fijo desde el inicio.
+</p>
+
+<h3>Conceptos estudiados en esta sección</h3>
+
+<ul>
+<li>Limitaciones de los vectores</li>
+<li>¿Qué es un ArrayList?</li>
+<li>Diferencias entre Vector y ArrayList</li>
+<li>Importación de ArrayList</li>
+<li>Métodos add(), get(), remove(), size(), contains() y clear()</li>
+<li>Recorrido de listas con for-each</li>
+<li>Agregar y eliminar elementos</li>
+<li>Aplicación mediante ejercicios prácticos</li>
+</ul>
+
+<hr>
 
 </body>
 </html>
